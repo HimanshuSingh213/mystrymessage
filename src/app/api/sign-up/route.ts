@@ -50,7 +50,7 @@ export async function POST(request: Request) {
             const newUser = new UserModel({
                 username,
                 email,
-                hashedPassword,
+                password: hashedPassword,
                 verifyCode,
                 verifyCodeExpiry: expiryDate,
                 isVerified: false,
@@ -81,7 +81,7 @@ export async function POST(request: Request) {
         }, { status: 200 })
 
     } catch (err) {
-        console.error("Error registering User.")
+        console.error("Error registering User:", err)
         return Response.json(
             {
                 success: false,

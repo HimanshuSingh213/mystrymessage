@@ -6,7 +6,7 @@ import UserModel from "@/models/Users";
 
 export const authOption: NextAuthOptions = {
     providers: [
-        CredentialsProvider({
+        CredentialsPError adding messagesrovider({
             id: "credentials",
             name: "Credentials",
             credentials: {

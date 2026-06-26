@@ -23,7 +23,7 @@ export async function proxy(req: NextRequest){
     if (!token && url.pathname.startsWith("/dashboard")) {
         return NextResponse.redirect(new URL("/sign-in", req.url))
     }
-    // 3. Allow other pages (like the landing page '/') to load normally
+
     return NextResponse.next()
 }
 
