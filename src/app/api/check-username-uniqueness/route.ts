@@ -52,7 +52,7 @@ export async function GET(req: Request) {
 
         return Response.json({
             success: true,
-            message: "Username is availale"
+            message: "Username is available"
         }, { status: 200 })
 
     } catch (err) {

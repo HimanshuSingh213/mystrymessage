@@ -15,7 +15,7 @@ export const POST = async (req: Request) => {
                 success: false,
                 message: "user not found"
             },
-                { status: 500 }
+                { status: 404 }
             )
         }
 
@@ -28,7 +28,7 @@ export const POST = async (req: Request) => {
                 success: false,
                 message: "Verification code is incorrect"
             },
-                { status: 500 }
+                { status: 400 }
             )
         }
 
@@ -38,7 +38,7 @@ export const POST = async (req: Request) => {
                 success: false,
                 message: "Verification code expired, please try again."
             },
-                { status: 500 }
+                { status: 400 }
             )
         }
 

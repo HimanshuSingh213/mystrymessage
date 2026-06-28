@@ -6,11 +6,11 @@ import UserModel from "@/models/Users";
 
 export const authOption: NextAuthOptions = {
     providers: [
-        CredentialsPError adding messagesrovider({
+        CredentialsProvider({
             id: "credentials",
             name: "Credentials",
             credentials: {
-                email: { label: "Email", type: "text" },
+                identifier: { label: "Email", type: "text" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials: any): Promise<any> {
