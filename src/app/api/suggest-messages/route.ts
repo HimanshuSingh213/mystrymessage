@@ -1,4 +1,4 @@
-import { google } from "@ai-sdk/google";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { createTextStreamResponse, streamText, toTextStream } from "ai";
 import { NextResponse } from "next/server";
 
@@ -10,8 +10,11 @@ export async function POST(req: Request) {
 
         const { messages } = await req.json()
 
+        const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY || process.env.GEMINI_AI_KEY;
+        const googleProvider = createGoogleGenerativeAI({ apiKey });
+
         const result = streamText({
-            model: google("gemini-2.5-flash"),
+            model: googleProvider("gemini-2.5-flash"),
             messages,
             maxOutputTokens: 800,
             temperature: 0.8,
